@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{...}:
 
 {
   vim = {
@@ -21,5 +21,9 @@
 	  python.enable = true;
 	  ts.enable = true;
     };
+
+	filetree.neo-tree = {
+		enable = true;
+	};
   };
 }
