@@ -18,6 +18,7 @@
           pkgs = pkgs;
           modules = [ ./nvf-configuration.nix ];
         }
+        ).neovim;
     });
   };
 }
