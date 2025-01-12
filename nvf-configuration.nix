@@ -32,7 +32,7 @@
       };
 
       "<leader>e" = {
-        action = ":Neotree<CR>";
+        action = ":Neotree position=right toggle=true<CR>";
       };
     };
   };
