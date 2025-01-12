@@ -26,5 +26,14 @@
       enable = true;
     };
 
+    maps.normal = {
+      "<Esc>" = {
+        action = ":noh<CR>";
+      };
+
+      "<leader>e" = {
+        action = ":Neotree<CR>";
+      };
+    };
   };
 }
