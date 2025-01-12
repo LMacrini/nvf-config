@@ -10,12 +10,10 @@
   outputs = { self, nixpkgs, nvf, systems }: let
     eachSystem = nixpkgs.lib.genAttrs (import systems);
   in {
-    packages = eachSystem (system: let
-      pkgs = import nixpkgs {system = system;};
-    in {
+    packages = eachSystem (system: {
       default =
         (nvf.lib.neovimConfiguration {
-          pkgs = pkgs;
+          pkgs = import nixpkgs { inherit system; };
           modules = [ ./nvf-configuration.nix ];
         }
         ).neovim;
