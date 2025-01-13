@@ -42,14 +42,12 @@
           {
             icon = " ";
             desc = "New file";
-            # group = "Label";
             action = "enew";
             key = "n";
           }
           {
             icon = " ";
             desc = "Github Profile";
-            # group = "DashboardDesc";
             action = "silent exec '!open https://github.com/lmacrini'";
             key = "g";
           }
