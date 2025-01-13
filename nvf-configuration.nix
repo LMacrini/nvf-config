@@ -27,6 +27,9 @@
       enable = true;
     };
 
+    binds = {
+      cheatsheet.enable = true;
+    };
     maps.normal = {
       "<Esc>" = {
         action = ":noh<CR>";
