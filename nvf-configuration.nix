@@ -44,7 +44,7 @@
             desc = "New file";
             # group = "Label";
             action = "enew";
-            key = "e";
+            key = "n";
           }
           {
             icon = " ";
