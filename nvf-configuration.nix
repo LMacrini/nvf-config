@@ -8,6 +8,8 @@
       style = "macchiato";
     };
 
+    utility.motion.hop.enable = true;
+
     autopairs.nvim-autopairs.enable = true;
     statusline.lualine.enable = true;
     telescope.enable = true;
@@ -99,6 +101,10 @@
 
       "<leader>e" = {
         action = ":Neotree position=right toggle=true<CR>";
+      };
+
+      "<Enter>" = {
+        action = ":HopWord<CR>";
       };
     };
   };
