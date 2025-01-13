@@ -53,6 +53,12 @@
             action = "silent exec '!open https://github.com/lmacrini'";
             key = "g";
           }
+          {
+            icon = "󰈆 ";
+            desc = "Quit";
+            action = "q";
+            key = "q";
+          }
         ];
 
         footer = [
