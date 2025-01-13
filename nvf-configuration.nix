@@ -12,7 +12,13 @@
     statusline.lualine.enable = true;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
-
+    terminal.toggleterm = {
+      enable = true;
+      setupOpts = {
+        direction = "float";
+      };
+    };
+      
     languages = {
       enableLSP = true;
       enableTreesitter = true;
@@ -30,6 +36,15 @@
     binds = {
       cheatsheet.enable = true;
     };
+
+    keymaps = [
+      {
+        key = "<Esc>";
+        mode = "t";
+        action = "<C-\\><C-N>";
+      }
+    ];
+
     maps.normal = {
       "<Esc>" = {
         action = ":noh<CR>";
