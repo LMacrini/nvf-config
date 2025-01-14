@@ -11,6 +11,8 @@ in
       style = "macchiato";
     };
 
+    preventJunkFiles = true;
+
     utility.motion.hop.enable = true;
 
     autopairs.nvim-autopairs.enable = true;
