@@ -1,5 +1,8 @@
-{...}:
+{pkgs, ...}:
 
+let
+  open = if pkgs.stdenv.isDarwin then "open" else "xdg-open";
+in
 {
   vim = {
     theme = {
@@ -40,7 +43,7 @@
           {
             icon = " ";
             desc = "Github Profile";
-            action = "silent exec '!open https://github.com/lmacrini'";
+            action = "silent exec '!${open} https://github.com/lmacrini'";
             key = "g";
           }
           {
