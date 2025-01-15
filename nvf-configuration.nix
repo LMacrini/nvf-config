@@ -12,6 +12,7 @@ in
     };
 
     preventJunkFiles = true;
+    useSystemClipboard = true;
 
     utility.motion.hop.enable = true;
 
