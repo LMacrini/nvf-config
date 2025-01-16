@@ -6,6 +6,7 @@ in
 {
   vim = {
     options = {
+      tabstop = 4;
       tm = 1000;
     };
 
