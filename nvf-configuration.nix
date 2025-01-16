@@ -26,6 +26,7 @@ in
     statusline.lualine.enable = true;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
+    notes.todo-comments.enable = true;
     terminal.toggleterm = {
       enable = true;
       setupOpts = {
