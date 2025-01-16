@@ -5,6 +5,10 @@ let
 in
 {
   vim = {
+    options = {
+      tm = 1000;
+    };
+
     theme = {
       enable = true;
       name = "catppuccin";
