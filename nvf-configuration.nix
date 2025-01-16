@@ -74,10 +74,6 @@ in
       ts.enable = true;
     };
 
-    filetree.neo-tree = {
-      enable = true;
-    };
-
     binds = {
       cheatsheet.enable = true;
     };
@@ -96,7 +92,11 @@ in
       };
 
       "<leader>e" = {
-        action = ":Neotree position=right toggle=true<CR>";
+        action = ":Telescope find_files<CR>";
+      };
+
+      "<leader>E" = {
+        action = ":Telescope find_files hidden=true<CR>";
       };
 
       "<Enter>" = {
