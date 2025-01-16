@@ -69,7 +69,8 @@ in
         ];
       };
     };
-      
+    
+    lsp.trouble.enable = true;
     languages = {
       enableLSP = true;
       enableTreesitter = true;
