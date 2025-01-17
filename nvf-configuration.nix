@@ -35,6 +35,12 @@ in
     };
     autocomplete.nvim-cmp.enable = true;
     notes.todo-comments.enable = true;
+    notify.nvim-notify = {
+      enable = true;
+      setupOpts = {
+        render = "default";
+      };
+    };
     terminal.toggleterm = {
       enable = true;
       setupOpts = {
