@@ -23,6 +23,7 @@ in
     utility = {
       motion.hop.enable = true;
       outline.aerial-nvim.enable = true;
+      preview.markdownPreview.enable = true;
     };
 
     autopairs.nvim-autopairs.enable = true;
@@ -135,6 +136,10 @@ in
       "<leader>F" = {
         action = ":AerialToggle!<CR>";
         desc = "Toggle Aerial";
+      };
+
+      "<leader>md" = {
+        action = ":MarkdownPreviewToggle<CR>";
       };
     };
   };
