@@ -20,7 +20,10 @@ in
     preventJunkFiles = true;
     useSystemClipboard = true;
 
-    utility.motion.hop.enable = true;
+    utility = {
+      motion.hop.enable = true;
+      outline.aerial-nvim.enable = true;
+    };
 
     autopairs.nvim-autopairs.enable = true;
     statusline.lualine.enable = true;
@@ -114,6 +117,11 @@ in
 
       "<Enter>" = {
         action = ":HopWord<CR>";
+      };
+
+      "<leader>F" = {
+        action = ":AerialToggle!<CR>";
+        desc = "Toggle Aerial";
       };
     };
   };
