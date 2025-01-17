@@ -17,6 +17,23 @@ in
       style = "macchiato";
     };
 
+    extraPlugins = with pkgs.vimPlugins; {
+      vim-suda = {
+        package = vim-suda;
+      };
+
+      indent-blankline = {
+        package = indent-blankline-nvim;
+        setup = ''
+          require("ibl").setup {
+            exclude = {
+              filetypes = { "dashboard" },
+            },
+          }
+        '';
+      };
+    };
+
     preventJunkFiles = true;
     useSystemClipboard = true;
 
