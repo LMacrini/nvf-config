@@ -24,7 +24,12 @@ in
 
     autopairs.nvim-autopairs.enable = true;
     statusline.lualine.enable = true;
-    telescope.enable = true;
+    telescope = {
+      enable = true;
+      mappings = {
+        findFiles = null;
+      };
+    };
     autocomplete.nvim-cmp.enable = true;
     notes.todo-comments.enable = true;
     terminal.toggleterm = {
