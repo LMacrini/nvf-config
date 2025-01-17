@@ -88,6 +88,13 @@ in
       zig.enable = true;
       python.enable = true;
       ts.enable = true;
+
+      markdown = {
+        enable = true;
+        extensions = {
+          render-markdown-nvim.enable = true;
+        };
+      };
     };
 
     binds = {
