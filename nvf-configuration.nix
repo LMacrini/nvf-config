@@ -21,16 +21,42 @@ in
       vim-suda = {
         package = vim-suda;
       };
+    };
 
-      indent-blankline = {
-        package = indent-blankline-nvim;
-        setup = ''
-          require("ibl").setup {
-            exclude = {
-              filetypes = { "dashboard" },
-            },
-          }
+    lazy.plugins = with pkgs.vimPlugins; {
+      "vim-matchup" = {
+        package = vim-matchup;
+        setupModule = "match-up";
+        after = ''
+          vim.g.matchup_matchparen_offscreen = { method = "popup" }
         '';
+
+        event = ["BufEnter"];
+      };
+
+      "mini.indentscope" = {
+        package = mini-indentscope;
+        setupModule = "mini.indentscope";
+        after = ''
+          vim.api.nvim_create_autocmd({ "FileType" }, {
+            desc = "Disable indentscope for certain filetypes",
+            callback = function()
+              local ignored_filetypes = {
+                "aerial",
+                "dashboard",
+                "help",
+                "notify",
+                "toggleterm",
+                "Trouble"
+              }
+              if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
+                vim.b.miniindentscope_disable = true
+              end
+            end,
+          })
+        '';
+
+        event = ["BufEnter"];
       };
     };
 
@@ -65,6 +91,13 @@ in
         direction = "float";
       };
     };
+    ui.noice = {
+      enable = true;
+      setupOpts = {
+        cmdline.view = "cmdline";
+      };
+    };
+    visuals.highlight-undo.enable = true;
 
     dashboard.dashboard-nvim.enable = true;
     dashboard.dashboard-nvim.setupOpts = {
@@ -103,7 +136,11 @@ in
       };
     };
     
-    lsp.trouble.enable = true;
+    lsp = {
+      trouble.enable = true;
+      lspSignature.enable = true;
+      lightbulb.enable = true;
+    };
     languages = {
       enableLSP = true;
       enableTreesitter = true;
@@ -140,10 +177,12 @@ in
 
       "<leader>e" = {
         action = ":Telescope find_files<CR>";
+        desc = "Find Files";
       };
 
       "<leader>E" = {
         action = ":Telescope find_files hidden=true<CR>";
+        desc = "Find Files (hidden)";
       };
 
       "<Enter>" = {
