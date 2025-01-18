@@ -142,7 +142,6 @@ in
     lsp = {
       trouble.enable = true;
       lspSignature.enable = true;
-      lightbulb.enable = true;
       lspkind = {
         enable = true;
         setupOpts.mode = "symbol";
