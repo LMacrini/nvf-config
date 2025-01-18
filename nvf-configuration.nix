@@ -176,6 +176,12 @@ in
       }
     ];
 
+    maps.command = {
+      "W" = {
+        action = "SudaWrite";
+      };
+    };
+
     maps.normal = {
       "<Esc>" = {
         action = ":noh<CR>";
