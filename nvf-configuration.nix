@@ -91,7 +91,16 @@ in
         direction = "float";
       };
     };
-    visuals.highlight-undo.enable = true;
+    visuals = {
+      highlight-undo.enable = true;
+      nvim-scrollbar = {
+        enable = true;
+        setupOpts.excluded_filetypes = [
+          "dashboard"
+          "notify"
+        ];
+      };
+    };
 
     dashboard.dashboard-nvim.enable = true;
     dashboard.dashboard-nvim.setupOpts = {
