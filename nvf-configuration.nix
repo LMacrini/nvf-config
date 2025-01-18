@@ -91,12 +91,6 @@ in
         direction = "float";
       };
     };
-    ui.noice = {
-      enable = true;
-      setupOpts = {
-        cmdline.view = "cmdline";
-      };
-    };
     visuals.highlight-undo.enable = true;
 
     dashboard.dashboard-nvim.enable = true;
