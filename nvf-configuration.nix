@@ -94,6 +94,9 @@ in
       "mini.indentscope" = {
         package = mini-indentscope;
         setupModule = "mini.indentscope";
+        setupOpts = {
+          symbol = "▏";
+        };
         after = ''
           vim.api.nvim_create_autocmd({ "FileType" }, {
             desc = "Disable indentscope for certain filetypes",
