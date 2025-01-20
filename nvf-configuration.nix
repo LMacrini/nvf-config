@@ -7,6 +7,7 @@ in
   vim = {
     options = {
       signcolumn = "number";
+      shiftwidth = 2;
       tabstop = 4;
       tm = 1000;
     };
