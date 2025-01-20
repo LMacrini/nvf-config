@@ -200,6 +200,8 @@ in
       };
     };
     
+    git.enable = true;
+
     lsp = {
       trouble.enable = true;
       lspSignature.enable = true;
@@ -208,6 +210,7 @@ in
         setupOpts.mode = "symbol";
       };
     };
+
     languages = {
       enableLSP = true;
       enableTreesitter = true;
