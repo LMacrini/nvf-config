@@ -160,6 +160,7 @@ in
           "notify"
         ];
       };
+      nvim-web-devicons.enable = true;
     };
 
     dashboard.dashboard-nvim.enable = true;
