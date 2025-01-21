@@ -1,7 +1,8 @@
 {pkgs, ...}:
 
 let
-  open = if pkgs.stdenv.isDarwin then "open" else "xdg-open";
+  mac = pkgs.stdenv.isDarwin;
+  open = if mac then "open" else "xdg-open";
 in
 {
   vim = {
@@ -48,7 +49,8 @@ in
                   return {
                     line.sep('', hl, theme.fill),
                     -- tab.is_current() and '' or '󰆣',
-                    tab.is_current() and '' or tab.current_win().file_icon(),
+                    -- tab.is_current() and '' or tab.current_win().file_icon(),
+                    tab.current_win().file_icon(),
                     tab.number(),
                     tab.name(),
                     tab.close_btn(''),
@@ -118,6 +120,74 @@ in
         '';
 
         event = ["BufEnter"];
+      };
+
+      "smart-splits.nvim" = {
+        package = smart-splits-nvim;
+        setupModule = "smart-splits";
+        after = ''
+          main = "ibl"
+        '';
+        event = ["BufEnter"];
+
+        setupOpts = {
+          resize_mode.resize_keys = [
+            "<Left>"
+            "<Down>"
+            "<Up>"
+            "<Right>"
+          ];
+        };
+
+        keys = [
+          {
+            action = ":SmartCursorMoveLeft<CR>";
+            key = if mac then "<C-S-Left>" else "<C-Left>";
+            mode = "n";
+          }
+          {
+            action = ":SmartCursorMoveRight<CR>";
+            key = if mac then "<C-S-Rights>" else "<C-Right>";
+            mode = "n";
+          }
+          {
+            action = ":SmartCursorMoveUp<CR>";
+            key = "<leader><Up>";
+            mode = "n";
+          }
+          {
+            action = ":SmartCursorMoveDown<CR>";
+            key = "<leader><Down>";
+            mode = "n";
+          }
+
+          {
+            action = ":SmartResizeMode<CR>";
+            key = "<leader>r";
+            mode = "n";
+          }
+
+          {
+            action = ":SmartSwapLeft<CR>";
+            key = "<leader>m<Left>";
+            mode = "n";
+          }
+          {
+            action = ":SmartSwapRight<CR>";
+            key = "<leader>m<Right>";
+            mode = "n";
+          }
+          {
+            action = ":SmartSwapUp<CR>";
+            key = "<leader>m<Ups.";
+            mode = "n";
+          }
+          {
+            action = ":SmartSwapUp<CR>";
+            key = "<leader>m<Down>";
+            mode = "n";
+          }
+        ];
       };
     };
 
@@ -273,6 +343,18 @@ in
 
       "<leader>md" = {
         action = ":MarkdownPreviewToggle<CR>";
+      };
+
+      "<leader>nt" = {
+        action = ":tabnew<CR>:Telescope find_files<CR>";
+      };
+
+      "<leader>nh" = {
+        action = ":sp<CR>";
+      };
+
+      "<leader>nv" = {
+        action = ":vsp<CR>";
       };
     };
   };
