@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, lib, ...}:
 
 let
   mac = pkgs.stdenv.isDarwin;
@@ -237,40 +237,48 @@ in
       nvim-web-devicons.enable = true;
     };
 
-    dashboard.dashboard-nvim.enable = true;
-    dashboard.dashboard-nvim.setupOpts = {
-      config = {
-        disable_move = true;
-      
-        header = import ./dashboardheader.nix ("seija");
+    dashboard.dashboard-nvim = {
+      enable = true;
+      setupOpts = {
+        config = {
+          disable_move = true;
+        
+          header = import ./dashboardheader.nix ("seija");
 
-        packages.enable = false;
+          packages.enable = false;
 
-        shortcut = [
-          {
-            icon = " ";
-            desc = "New file";
-            action = "enew";
-            key = "n";
-          }
-          {
-            icon = " ";
-            desc = "Github Profile";
-            action = "silent exec '!${open} https://github.com/lmacrini'";
-            key = "g";
-          }
-          {
-            icon = "󰈆 ";
-            desc = "Quit";
-            action = "q";
-            key = "q";
-          }
-        ];
+          project.action = lib.generators.mkLuaInline ''
+            function(path)
+              vim.cmd("Telescope find_files cwd=" .. string.gsub(path, " ", "\\ "))
+            end
+          '';
 
-        footer = [
-          ""
-          "󱣳 The 25th Wam"
-        ];
+          shortcut = [
+            {
+              icon = " ";
+              desc = "New file";
+              action = "enew";
+              key = "n";
+            }
+            {
+              icon = " ";
+              desc = "Github Profile";
+              action = "silent exec '!${open} https://github.com/lmacrini'";
+              key = "g";
+            }
+            {
+              icon = "󰈆 ";
+              desc = "Quit";
+              action = "q";
+              key = "q";
+            }
+          ];
+
+          footer = [
+            ""
+            "󱣳 The 25th Wam"
+          ];
+        };
       };
     };
     
