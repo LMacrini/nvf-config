@@ -1,10 +1,14 @@
-{pkgs, lib, ...}:
-
-let
-  mac = pkgs.stdenv.isDarwin;
-  open = if mac then "open" else "xdg-open";
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  mac = pkgs.stdenv.isDarwin;
+  open =
+    if mac
+    then "open"
+    else "xdg-open";
+in {
   vim = {
     options = {
       signcolumn = "number";
@@ -138,10 +142,12 @@ in
             "<Right>"
           ];
         };
-        
-        keys = 
-        let
-          osbind = key: if mac then "<C-S-" + key + ">" else "<C-" + key + ">";
+
+        keys = let
+          osbind = key:
+            if mac
+            then "<C-S-" + key + ">"
+            else "<C-" + key + ">";
         in [
           {
             action = ":SmartCursorMoveLeft<CR>";
@@ -242,8 +248,8 @@ in
       setupOpts = {
         config = {
           disable_move = true;
-        
-          header = import ./dashboardheader.nix ("seija");
+
+          header = import ./dashboardheader.nix "seija";
 
           packages.enable = false;
 
@@ -281,7 +287,7 @@ in
         };
       };
     };
-    
+
     git.enable = true;
 
     lsp = {
