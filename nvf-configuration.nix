@@ -131,16 +131,31 @@ in {
         setupModule = "smart-splits";
         after = ''
           main = "ibl"
+          vim.keymap.set(
+            "n",
+            "<leader>r",
+            function()
+              if not vim.g.smart_resize_mode then
+                vim.cmd("SmartResizeMode")
+              else
+                print("Smart Resize Mode is already enabled!")
+              end
+            end,
+            { noremap = true, silent = true, desc = "Enable Resizing", }
+          )
         '';
         event = ["BufEnter"];
 
         setupOpts = {
-          resize_mode.resize_keys = [
-            "<Left>"
-            "<Down>"
-            "<Up>"
-            "<Right>"
-          ];
+          resize_mode = {
+            silent = true;
+            resize_keys = [
+              "<Left>"
+              "<Down>"
+              "<Up>"
+              "<Right>"
+            ];
+          };
         };
 
         keys = let
@@ -167,12 +182,6 @@ in {
           {
             action = ":SmartCursorMoveDown<CR>";
             key = osbind "Down";
-            mode = "n";
-          }
-
-          {
-            action = ":SmartResizeMode<CR>";
-            key = "<leader>r";
             mode = "n";
           }
 
@@ -210,7 +219,18 @@ in {
     };
 
     autopairs.nvim-autopairs.enable = true;
-    statusline.lualine.enable = true;
+    statusline.lualine = {
+      enable = true;
+      extraActiveSection = {
+        c = [
+          ''
+            function()
+              return vim.g.smart_resize_mode and "RESIZING SPLITS" or ""
+            end
+          ''
+        ];
+      };
+    };
     telescope = {
       enable = true;
       mappings = {
