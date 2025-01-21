@@ -26,6 +26,11 @@ in {
     extraPlugins = with pkgs.vimPlugins; {
       vim-suda = {
         package = vim-suda;
+        setup = ''
+          vim.api.nvim_create_user_command("W", function(opts)
+            vim.cmd("SudaWrite " .. opts.args)
+          end, { nargs = "?" })
+        '';
       };
 
       tabby-nvim = {
@@ -373,12 +378,6 @@ in {
         action = "<C-\\><C-N>";
       }
     ];
-
-    maps.command = {
-      "W" = {
-        action = "SudaWrite";
-      };
-    };
 
     maps.normal = {
       "<Esc>" = {
