@@ -138,26 +138,29 @@ in
             "<Right>"
           ];
         };
-
-        keys = [
+        
+        keys = 
+        let
+          osbind = key: if mac then "<C-S-" + key + ">" else "<C-" + key + ">";
+        in [
           {
             action = ":SmartCursorMoveLeft<CR>";
-            key = if mac then "<C-S-Left>" else "<C-Left>";
+            key = osbind "Left";
             mode = "n";
           }
           {
             action = ":SmartCursorMoveRight<CR>";
-            key = if mac then "<C-S-Rights>" else "<C-Right>";
+            key = osbind "Right";
             mode = "n";
           }
           {
             action = ":SmartCursorMoveUp<CR>";
-            key = "<leader><Up>";
+            key = osbind "Up";
             mode = "n";
           }
           {
             action = ":SmartCursorMoveDown<CR>";
-            key = "<leader><Down>";
+            key = osbind "Down";
             mode = "n";
           }
 
