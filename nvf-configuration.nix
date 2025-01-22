@@ -294,6 +294,10 @@ in {
       };
     };
 
+    mini = {
+      ai.enable = true;
+    };
+
     dashboard.dashboard-nvim = {
       enable = true;
       setupOpts = {
