@@ -351,10 +351,6 @@ in {
       };
     };
 
-    binds = {
-      cheatsheet.enable = true;
-    };
-
     keymaps = [
       {
         key = "<Esc>";
