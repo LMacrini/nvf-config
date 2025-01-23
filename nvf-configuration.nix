@@ -9,6 +9,12 @@
     then "open"
     else "xdg-open";
 in {
+  imports = [
+    ./cinnamon.nix
+  ];
+
+  cinnamon.enable = true;
+
   vim = {
     options = {
       signcolumn = "number";
@@ -266,32 +272,6 @@ in {
         ];
       };
       nvim-web-devicons.enable = true;
-      cinnamon-nvim = {
-        enable = true;
-        setupOpts = {
-          keymaps = {
-            basic = true;
-            extra = true;
-          };
-
-          options = {
-            mode = "cursor";
-            count_only = false;
-            delay = 5;
-
-            max_delta = {
-              line = false;
-              column = false;
-              time = 1000;
-            };
-
-            step_size = {
-              vertical = 1;
-              horizontal = 2;
-            };
-          };
-        };
-      };
     };
 
     mini = {
