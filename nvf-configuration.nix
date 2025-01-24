@@ -282,8 +282,6 @@ in {
       enable = true;
       setupOpts = {
         config = {
-          disable_move = true;
-
           header = import ./dashboardheader.nix "seija";
 
           packages.enable = false;
