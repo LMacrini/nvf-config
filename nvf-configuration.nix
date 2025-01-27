@@ -16,6 +16,9 @@ in {
   cinnamon.enable = true;
 
   vim = {
+    extraPackages = with pkgs; [
+      fira-code-nerdfont  
+    ];
     options = {
       signcolumn = "number";
       shiftwidth = 2;
