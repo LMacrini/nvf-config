@@ -21,7 +21,7 @@
             max_delta = {
               line = false;
               column = false;
-              time = 1000;
+              time = 500;
             };
 
             step_size = {
