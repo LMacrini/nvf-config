@@ -17,7 +17,7 @@ in {
 
   vim = {
     extraPackages = with pkgs; [
-      fira-code-nerdfont  
+      nerd-fonts.fira-code 
     ];
     options = {
       signcolumn = "number";

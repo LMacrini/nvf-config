@@ -2,7 +2,7 @@
   description = "My neovim config using nvf";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvf.url = "github:notashelf/nvf";
     systems.url = "github:nix-systems/default";
   };
