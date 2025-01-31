@@ -30,6 +30,7 @@ in {
       enable = true;
       name = "catppuccin";
       style = "macchiato";
+      transparent = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; {
