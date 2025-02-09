@@ -351,6 +351,9 @@ in {
         };
       };
     };
+    treesitter = {
+      autotagHtml = true;
+    };
 
     keymaps = [
       {
