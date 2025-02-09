@@ -339,14 +339,31 @@ in {
       enableLSP = true;
       enableTreesitter = true;
 
-      nix.enable = true;
-      zig.enable = true;
+      nix = {
+        enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+
+        extraDiagnostics.enable = true;
+      };
+
+      zig = {
+        enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+      };
+
       python.enable = true;
+
       html = {
         enable = true;
         treesitter.enable = true;
       };
-      ts.enable = true;
+      ts = {
+        enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+      };
 
       markdown = {
         enable = true;
