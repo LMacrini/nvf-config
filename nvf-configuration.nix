@@ -342,6 +342,10 @@ in {
       nix.enable = true;
       zig.enable = true;
       python.enable = true;
+      html = {
+        enable = true;
+        treesitter.enable = true;
+      };
       ts.enable = true;
 
       markdown = {
@@ -350,9 +354,6 @@ in {
           render-markdown-nvim.enable = true;
         };
       };
-    };
-    treesitter = {
-      autotagHtml = true;
     };
 
     keymaps = [
