@@ -230,6 +230,10 @@ in {
       motion.hop.enable = true;
       outline.aerial-nvim.enable = true;
       preview.markdownPreview.enable = true;
+      surround = {
+        enable = true;
+        useVendoredKeybindings = false;
+      };
     };
 
     autopairs.nvim-autopairs.enable = true;
