@@ -270,7 +270,14 @@ in {
       };
     };
     visuals = {
-      highlight-undo.enable = true;
+      highlight-undo = {
+        enable = true;
+        setupOpts = {
+          ignored_filetypes = [
+            "dashboard"
+          ];
+        };
+      };
       nvim-scrollbar = {
         enable = true;
         setupOpts.excluded_filetypes = [
