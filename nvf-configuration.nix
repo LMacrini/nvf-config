@@ -20,7 +20,6 @@ in {
       nerd-fonts.fira-code 
     ];
     options = {
-      signcolumn = "number";
       shiftwidth = 2;
       tabstop = 4;
       tm = 1000;
