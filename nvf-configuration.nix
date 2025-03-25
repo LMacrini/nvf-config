@@ -363,6 +363,11 @@ in {
         treesitter.enable = true;
       };
 
+      rust = {
+        enable = true;
+        crates.enable = true;
+      };
+
       python.enable = true;
 
       html = {
