@@ -16,9 +16,6 @@ in {
   cinnamon.enable = true;
 
   vim = {
-    extraPackages = with pkgs; [
-      nerd-fonts.fira-code 
-    ];
     options = {
       shiftwidth = 2;
       tabstop = 4;
@@ -397,12 +394,12 @@ in {
       };
 
       "<leader>e" = {
-        action = ":Telescope find_files<CR>";
+        action = ":Telescope fd<CR>";
         desc = "Find Files";
       };
 
       "<leader>E" = {
-        action = ":Telescope find_files hidden=true<CR>";
+        action = ":Telescope fd hidden=true<CR>";
         desc = "Find Files (hidden)";
       };
 
@@ -420,7 +417,7 @@ in {
       };
 
       "<leader>nt" = {
-        action = ":tabnew<CR>:Telescope find_files<CR>";
+        action = ":tabnew<CR>:Telescope fd<CR>";
       };
 
       "<leader>nh" = {
