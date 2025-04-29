@@ -13,7 +13,7 @@ in {
     ./cinnamon.nix
   ];
 
-  cinnamon.enable = true;
+  cinnamon.enable = false;
 
   vim = {
     options = {
