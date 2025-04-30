@@ -378,6 +378,12 @@ in {
           render-markdown-nvim.enable = true;
         };
       };
+      typst = {
+        enable = true;
+        typst-preview-nvim.enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+      };
     };
 
     keymaps = [
