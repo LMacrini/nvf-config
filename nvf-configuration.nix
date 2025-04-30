@@ -380,7 +380,7 @@ in {
       };
       typst = {
         enable = true;
-        typst-preview-nvim.enable = true;
+        extensions.typst-preview-nvim.enable = true;
         lsp.enable = true;
         treesitter.enable = true;
       };
