@@ -251,7 +251,25 @@ in {
         findFiles = null;
       };
     };
-    autocomplete.nvim-cmp.enable = true;
+    autocomplete.blink-cmp = {
+      enable = true;
+      setupOpts = {
+        snippets.expand = lib.generators.mkLuaInline ''
+          function(snippet) 
+            local text = snippet
+            local before_paren = snippet:match("^(.-)%(")
+            if not snippet:match("%(%s*%)$") and before_paren then
+              text = before_paren .. "(''${1:})"
+            end
+            vim.snippet.expand(text)
+          end
+        '';
+
+        completion.list.selection = {
+          auto_insert = false;
+        };
+      };
+    };
     notes.todo-comments.enable = true;
     notify.nvim-notify = {
       enable = true;
@@ -335,7 +353,6 @@ in {
 
     lsp = {
       trouble.enable = true;
-      lspSignature.enable = true;
       lspkind = {
         enable = true;
         setupOpts.mode = "symbol";
