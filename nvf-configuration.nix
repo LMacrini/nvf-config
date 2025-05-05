@@ -20,6 +20,8 @@ in {
       shiftwidth = 2;
       tabstop = 4;
       tm = 1000;
+      ignorecase = true;
+      smartcase = true;
     };
 
     theme = {
