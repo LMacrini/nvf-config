@@ -256,6 +256,7 @@ in {
     autocomplete.blink-cmp = {
       enable = true;
       setupOpts = {
+        signature.enabled = true;
         snippets.expand = lib.generators.mkLuaInline ''
           function(snippet) 
             local text = snippet
