@@ -22,6 +22,7 @@ in {
       tm = 1000;
       ignorecase = true;
       smartcase = true;
+      scrolloff = 3;
     };
 
     theme = {
