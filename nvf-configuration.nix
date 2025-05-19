@@ -223,7 +223,10 @@ in {
     };
 
     preventJunkFiles = true;
-    useSystemClipboard = true;
+    clipboard = {
+      enable = true;
+      registers = "unnamedplus";
+    };
 
     utility = {
       motion.hop.enable = true;
@@ -356,6 +359,7 @@ in {
     git.enable = true;
 
     lsp = {
+      enable = true;
       trouble.enable = true;
       lspkind = {
         enable = true;
@@ -364,7 +368,6 @@ in {
     };
 
     languages = {
-      enableLSP = true;
       enableTreesitter = true;
 
       nix = {
