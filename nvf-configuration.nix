@@ -372,28 +372,25 @@ in {
 
       nix = {
         enable = true;
-        lsp.enable = true;
-        treesitter.enable = true;
 
         extraDiagnostics.enable = true;
       };
 
       zig = {
         enable = true;
-        lsp.enable = true;
-        treesitter.enable = true;
+      };
+
+      nu = {
+        enable = true;
       };
 
       python.enable = true;
 
       html = {
         enable = true;
-        treesitter.enable = true;
       };
       ts = {
         enable = true;
-        lsp.enable = true;
-        treesitter.enable = true;
       };
 
       markdown = {
@@ -405,8 +402,6 @@ in {
       typst = {
         enable = true;
         extensions.typst-preview-nvim.enable = true;
-        lsp.enable = true;
-        treesitter.enable = true;
       };
     };
 
