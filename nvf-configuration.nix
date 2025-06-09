@@ -405,6 +405,14 @@ in {
       };
     };
 
+    treesitter = {
+      autotagHtml = true;
+      grammars = with pkgs.vimPlugins; with nvim-treesitter.builtGrammars; [
+        nvim-treesitter-parsers.qmljs
+        nvim-treesitter-parsers.qmldir
+      ];
+    };
+
     keymaps = [
       {
         key = "<Esc>";
@@ -453,5 +461,13 @@ in {
         action = ":vsp<CR>";
       };
     };
+
+    extraLuaFiles = [
+      ./qmlls.lua
+    ];
+
+    extraPackages = with pkgs; [
+      kdePackages.qtdeclarative
+    ];
   };
 }
